@@ -12,6 +12,8 @@ async function search() {
     }
     else{
        console.log("No git hub data");
+       alert("No git hub data")
+       nodata();
     }
 }
 function logFetch(url) {
@@ -21,6 +23,7 @@ function logFetch(url) {
     }
     catch (err) {
       console.log('fetch failed', err);
+
     }
 }
  
@@ -46,7 +49,19 @@ async function endFunction(){
         'score':objData.items[0].score,
         'numberOfBranch':branches.length
     }
-    console.table(result);    
+    let licence_name = JSON.stringify(result.licence_name);
+    console.table(result);
+    console.log(result.owner.login)
+    document.getElementById("result_name").innerHTML = result.name;  
+    document.getElementById("full_name").innerHTML = result.full_name;
+    document.getElementById("licensename").innerHTML = licence_name; 
+    document.getElementById("score").innerHTML = result.score;    
+    document.getElementById("numberOfBranches").innerHTML = result.numberOfBranch;  
+    document.getElementById("private").innerHTML = result.private;  
+    document.getElementById("login").innerHTML = result.owner.login; 
+    document.getElementById("owner_name").innerHTML = result.owner.name; 
+    document.getElementById("followers").innerHTML = result.owner.followersCount; 
+    document.getElementById("following").innerHTML = result.owner.followingCount; 
 }
 function licensename(){
     if(objData.items[0].license){
@@ -55,4 +70,17 @@ function licensename(){
     else{
         return null;
     }
+}
+
+function nodata(){
+    document.getElementById("result_name").innerHTML = "-";  
+    document.getElementById("full_name").innerHTML = "-";
+    document.getElementById("licensename").innerHTML = "-"; 
+    document.getElementById("score").innerHTML ="-";    
+    document.getElementById("numberOfBranches").innerHTML = "-";  
+    document.getElementById("private").innerHTML = "-";  
+    document.getElementById("login").innerHTML = "-"; 
+    document.getElementById("owner_name").innerHTML = "-"; 
+    document.getElementById("followers").innerHTML = "-"; 
+    document.getElementById("following").innerHTML = "-"; 
 }

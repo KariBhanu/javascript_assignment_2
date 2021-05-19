@@ -4,12 +4,99 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="searchText">
-    <input type="button" onclick="search()" value="search">
     
+    <div class="jumbotron text-center big-container">
+        <h2>Search for the Github data</h2>
+        <div class="container input-group">
+            <input type="text" class="form-control" placeholder="Search"  id="searchText">
+            <div class="input-group-btn">
+                <button class="btn btn-primary" onclick="search()">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table table-success table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Key</th>
+            <th scope="col">Value</th>
+            <th scope="col">Login</th>
+            <th scope="col">Name</th>
+            <th scope="col">FollowerCount</th>
+            <th scope="col">FollowingCount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">name</th>
+                <td id="result_name">-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <th scope="row">full_name</th>
+                <td id="full_name">-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <th scope="row">private</th>
+                <td id="private">-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <th scope="row">owner</th>
+                <td>-</td>
+                <td id="login">-</td>
+                <td id="owner_name">-</td>
+                <td id="followers">-</td>
+                <td id="following">-</td>
+            </tr>
+            <tr>
+                <th scope="row">licensename</th>
+                <td id="licensename">-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <th scope="row">score</th>
+                <td id="score">-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <th scope="row">numberOfBranches</th>
+                <td id="numberOfBranches">-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>  
+     
     <script src="index.js"></script>
     
 </body>
