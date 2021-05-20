@@ -1,7 +1,6 @@
 var searchText;
 var objData;
 var result = {};
-var xttp = new XMLHttpRequest();
 async function search() {
     searchText = document.getElementById("searchText").value;
     console.log(searchText);
@@ -23,17 +22,16 @@ function logFetch(url) {
     }
     catch (err) {
       console.log('fetch failed', err);
-
     }
 }
  
 async function endFunction(){
     
     //console.log(objData.items[0].owner.url);
-    let owner = await logFetch(objData.items[0].owner.url);
-    let branches_url = objData.items[0].branches_url.replace("{/branch}","");
+    let owner = await logFetch(objData.items[0].owner.url);//api call to fetch owner data 
+    let branches_url = objData.items[0].branches_url.replace("{/branch}","");//triming branches_url
     //console.log(branches_url);
-    let branches = await logFetch(branches_url);    
+    let branches = await logFetch(branches_url);//api call to get branches data
     owner = {
         'login':owner.login,
         'name':owner.name,
@@ -51,7 +49,6 @@ async function endFunction(){
     }
     let licence_name = JSON.stringify(result.licence_name);
     console.table(result);
-    console.log(result.owner.login)
     document.getElementById("result_name").innerHTML = result.name;  
     document.getElementById("full_name").innerHTML = result.full_name;
     document.getElementById("licensename").innerHTML = licence_name; 
