@@ -6,6 +6,7 @@ async function search() {
     console.log(searchText);
     let url = `https://api.github.com/search/repositories?q=${searchText}`;
     objData = await logFetch(url);
+    
     if(objData.items.length>0){ 
         endFunction();
     }
@@ -17,7 +18,9 @@ async function search() {
 }
 function logFetch(url) {
     try {
-      let response = fetch(url).then(response=>response.json());
+      let response = fetch(url).then(response=>response.json()).catch((error)=>{
+                                            throw error;
+                                        });
       return response;
     }
     catch (err) {
@@ -81,3 +84,6 @@ function nodata(){
     document.getElementById("followers").innerHTML = "-"; 
     document.getElementById("following").innerHTML = "-"; 
 }
+
+
+//error handling
